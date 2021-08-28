@@ -15,6 +15,9 @@ The cold clipper in e.g. the JCM800 and SLO100 are unbypassed gain stages. To my
 
 gain = 100000 / (1600 + Rk)
 
+<img src="https://render.githubusercontent.com/render/math?math=gain = 100000 / (1600 + Rk)">
+
+
 In graph form:
 
 gain.png
@@ -128,7 +131,7 @@ Heavy distortion at the output of the tone stack. Output of Cold Clipper is also
 
 ===============================================================
 
-![](images/FullGain.jpg)
+![](images/FullGain.jpg){: .shadow}
 Gain at full
 
 Note that while the Cold Clipper output signal increased, the signal level at the output of the tone stack stayed nearly the same and is now lower than the output of the Cold Clipper. A less lossy tone stack setting would have driven the LTP a bit harder. Maybe that (together with the post phase inverter volume) allows one to control the amount of LTP clipping?
@@ -148,4 +151,4 @@ Blencowe pdf
 TODO
 Formula:
 
-$$V_in=V_g+V_k$$
+$$Vin=Vg+Vk$$
