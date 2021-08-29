@@ -6,11 +6,64 @@ See e.g. https://robrobinette.com/How_the_Marshall_JCM800_Works.htm#Cold_Clipper
 The Cold Clipper is common in high(er) gain amps. It is an unbypassed gain stage, often said to be biased cold and therefore easily clipping the signal and causing pleasant harmonic distortion. Over time I have come to question this statement.
 
 ## Triode gain stage
-Other people have described this better than I ever could: http://www.valvewizard.co.uk/Common_Gain_Stage.pdf
+
+### Introduction
+A selection of information about triode gain stages is presented here as a minimum. 
+Other people have described the triode gain stage better than I ever could, please look there for more information: http://www.valvewizard.co.uk/Common_Gain_Stage.pdf
 
 See 1.13 for cut-off clipping, but note that the cathode is fully bypassed.
 
-## Unbypassed gain stage
+### Plate Characteristic curves
+The normal plate characteristic curves are for a tube in isolation.
+
+Plate_Characteristics_Legend.jpg
+Taken from https://robrobinette.com/Drawing_Tube_Load_Lines.htm
+
+### Biasing
+Without further action, the tube would only pass/amplify the negative part of the signal, block the positive part and the output would be heavily distorted. In order to solve this, a negative DC has to be added to the input signal. Or, which has the same result, one has to bias the tube. The easiest way to do this conceptually is with a voltage source, e.g. a battery. Like this:
+
+Battery Cathode Bias.png
+
+Problem solved. Tube will now amplify both the positive and negative half of the signal, until the signal gets too large and clipping will again occur. The battery will make sure the voltage at the cathode will always be 3V, independent of the current. So any fluctuating signal at the grid, which will cause a plate current fluctuation according to the plate curves characteristics, but the battery will sink it all and keep the cathode at 3V. At the cathode, the DC voltage is 3V, AC voltage is 0V.
+
+### Bypassed cathode bias resistor
+Enter the bypassed cathode resistor:
+
+Cathode Bypass.png
+Taken from http://www.valvewizard.co.uk/Common_Gain_Stage.pdf
+
+The cathode resistor Rk and cathode bypass capacitor Ck have exactly the same function as the battery: keep the cathode at a constant bias voltage. To keep the voltage at the cathode constant, the current through Rk has to be constant. That is the job of Ck: it 'eats' any AC current (shunts it to ground/averages it out/...). Rk's function is merely being a bias resistor.
+
+### Unbypassed cathode bias resistor
+Let's focus on the unbypassed gain stage:
+
+unbypassed.png
+Taken from Blencowe.
+
+With no signal applied at the grid, Rk biases the tube. Business as usual. But as soon as the signal starts to fluctuate, the current through Rk also starts to fluctuate and you end up with a fluctuating signal in phase with the input signal. It is as if the bias battery has become some grid signal controlled voltage source. This means that the input signal (between grid and ground) is not completely present at Vgk (the voltage between grid and cathode). The tube sees a smaller Vgk which is amplified normally. However, this means that the input signal is amplified less as Vgk is smaller than the input signal. This is called cathode degeneration of local negative feedback.
+Rk now has two functions: 1) it biases the tube, 2) it determines the amount of feedback (and thus gain).
+
+The output signal waveform of the 1.5k, 10k and 39k unbypassed gain stage (cold clippers) looks very similar, apart from the obvious gain difference. Here you see them with two of them scaled to all have the same amplitude:
+
+scaledColdClipperOutput.png
+
+That means that independent of the Rk value, the gain stage starts to clip the output signal at the same input signal level. How is that possible?! Vgk is very different in those cases because of the feedback!
+Well, the only current for which different resistors (Rk's) have the same voltage drop across them is zero current.
+
+Simulations in ltspice showed that distortion set in at around 4V input signal. I used a 300V HT. If we then look at the -4V grid curve of the normal plate characteristics at 0mA, we see that we are at an HT of approx. 300V.
+
+For the unbypassed gain stage, the plate characteristic curves had to be determined for each Rk specifically. I think we can say this a bit more precize: "The plate characteristic curves have to be determined for each amount of negative feedback specifically." The normal plate curve characteristic is just a special case of unbypassed: no feedback (Rk = 0R). Remember Rk has two functions in the unbypassed gain stage: bias & feedback. For the (fully) bypassed stage the bias is set by Rk, the (AC) feedback is determined by the resistance of Ck (which is zero for large enough caps). The two functions are divided over two components.
+
+Taking this a step further in the bypassed stage: What if we use Rk to set the bias, but add an additional resistor in series with Ck? Then we would be able to set the bias with Rk and control the feedback (and thus gain) with the newly introduced resistor. Low and behold, someone else had thought of that already :)
+Here is an image of that:
+
+bypassboost.jpeg
+Looks like a Blencowe figure to me.
+
+Conclusion
+The plate characteristic curves have to be determined for each amount of negative feedback specifically. Fully bypassed is just no feedback.
+
+### Unbypassed gain stage
 The cold clipper in e.g. the JCM800 and SLO100 are unbypassed gain stages. To my surprise there is not much to be found on unbypassed gain stages. Blencowe mentions it a bit in 1.18 (of pdf above) and here (http://valvewizard.co.uk/ChoosingBypassCaps.pdf) we can find the formula for the gain of the unbypassed gain stage. For the 'standard' 12AX7 unbypassed gain stage this simplifies to this approximation:
 
 gain = 100000 / (1600 + Rk)
@@ -25,7 +78,7 @@ gain.png
 
 See also this post by @Ten Over : https://www.tdpri.com/threads/blackface-ab763-experiment-high-gain-series-mod.1059543/#post-10862185
 
-The best description I could find was from a 1945 book: https://worldradiohistory.com/Archive-Rider/BOOKS/Inside-the-Vacuum-Tube-Rider-1945.pdf (p327 and futher)
+The best description I could find was from a 1945 book [Inside the Vacuum Tube][1]
 
 The normal load line plots are for fully bypassed stages:
 
@@ -131,8 +184,12 @@ Heavy distortion at the output of the tone stack. Output of Cold Clipper is also
 
 ===============================================================
 
-![](images/FullGain.jpg){: .shadow}
-Gain at full
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![hoover text 1](images/FullGain.jpg) | ![hoover text 2](images/FullGain.jpg)
+left | right
+![hoover text 1](images/FullGain.jpg) | ![hoover text 2](images/FullGain.jpg)
+left | right
 
 Note that while the Cold Clipper output signal increased, the signal level at the output of the tone stack stayed nearly the same and is now lower than the output of the Cold Clipper. A less lossy tone stack setting would have driven the LTP a bit harder. Maybe that (together with the post phase inverter volume) allows one to control the amount of LTP clipping?
 
@@ -145,7 +202,10 @@ Based on these experiments I would say that the contribution to the Cold Clipper
 
 References:
 Blencowe pdf
-1945 + other books
+[1]: <https://worldradiohistory.com/Archive-Rider/BOOKS/Inside-the-Vacuum-Tube-Rider-1945.pdf > "Inside the Vacuum Tube Rider p.327 and further"
+
+
+ + other books
 
 
 TODO
