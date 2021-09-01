@@ -17,13 +17,14 @@ See 1.13 for cut-off clipping, but note that the cathode is fully bypassed.
 ### Plate Characteristic curves
 The normal plate characteristic curves are for a tube in isolation.
 
-![Plate Characteristic Curve](Plate_Characteristics_Legend.jpg)
+![Plate Characteristic Curve](images/Plate_Characteristics_Legend.jpg)
+
 Taken from [here](https://robrobinette.com/Drawing_Tube_Load_Lines.htm)
 
 ### Biasing
 Without further action, the tube would only pass/amplify the negative part of the signal, block the positive part and the output would be heavily distorted. In order to solve this, a negative DC has to be added to the input signal. Or, which has the same result, one has to bias the tube. The easiest way to do this conceptually is with a voltage source, e.g. a battery. Like this:
 
-![Battery Cathode Bias](images/Battery%20Cathode%20Bias.png)
+![Battery Cathode Bias](images/Battery_Cathode_Bias.png)
 
 
 Problem solved. Tube will now amplify both the positive and negative half of the signal, until the signal gets too large and clipping will again occur. The battery will make sure the voltage at the cathode will always be 3V, independent of the current. So any fluctuating signal at the grid, which will cause a plate current fluctuation according to the plate curves characteristics, but the battery will sink it all and keep the cathode at 3V. At the cathode, the DC voltage is 3V, AC voltage is 0V.
@@ -31,7 +32,8 @@ Problem solved. Tube will now amplify both the positive and negative half of the
 ### Bypassed cathode bias resistor
 Enter the bypassed cathode resistor:
 
-![Cathode Bypass](Cathode%20Bypass.png)
+![Cathode Bypass](images/Cathode_Bypass.png)
+
 Taken from [here](http://www.valvewizard.co.uk/Common_Gain_Stage).
 
 The cathode resistor Rk and cathode bypass capacitor Ck have exactly the same function as the battery: keep the cathode at a constant bias voltage. To keep the voltage at the cathode constant, the current through Rk has to be constant. That is the job of Ck: it 'eats' any AC current (shunts it to ground/averages it out/...). Rk's function is merely being a bias resistor.
@@ -39,7 +41,8 @@ The cathode resistor Rk and cathode bypass capacitor Ck have exactly the same fu
 ### Unbypassed cathode bias resistor
 Let's focus on the unbypassed gain stage:
 
-![Unbypassed gain stage](unbypassed.png)
+![Unbypassed gain stage](images/unbypassed.png)
+
 Taken from [here](http://www.valvewizard.co.uk/Common_Gain_Stage.pdf).
 
 With no signal applied at the grid, Rk biases the tube. Business as usual. But as soon as the signal starts to fluctuate, the current through Rk also starts to fluctuate and you end up with a fluctuating signal in phase with the input signal. It is as if the bias battery has become some grid signal controlled voltage source. This means that the input signal (between grid and ground) is not completely present at Vgk (the voltage between grid and cathode). The tube sees a smaller Vgk which is amplified normally. However, this means that the input signal is amplified less as Vgk is smaller than the input signal. This is called cathode degeneration of local negative feedback.
@@ -59,7 +62,8 @@ For the unbypassed gain stage, the plate characteristic curves had to be determi
 Taking this a step further in the bypassed stage: What if we use Rk to set the bias, but add an additional resistor in series with Ck? Then we would be able to set the bias with Rk and control the feedback (and thus gain) with the newly introduced resistor. Low and behold, someone else had thought of that already :)
 Here is an image of that:
 
-![Bypass boost](bypassboost.)
+![Bypass boost](images/bypassboost.jpeg)
+
 Looks like a Blencowe figure to me.
 
 #### Conclusion
@@ -105,7 +109,7 @@ Improved linearity until cut off is reached:
 
 
 ## Experiments
-I put my JCM800 clone on the bench ( https://www.tdpri.com/threads/jcm800-6v6-variant.1027817/ ). I applied a approximately 100mV RMS 1kHz signal to the high input.
+I put my JCM800 clone on the bench ( https://www.tdpri.com/threads/jcm800-6v6-variant.1027817/ ). I applied an approximately 100mV RMS 1kHz signal to the high input.
 
 
 Amp settings:
