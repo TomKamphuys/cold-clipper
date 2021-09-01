@@ -70,7 +70,7 @@ Looks like a Blencowe figure to me.
 The plate characteristic curves have to be determined for each amount of negative feedback specifically. Fully bypassed is just no feedback.
 
 ### Unbypassed gain stage
-The cold clipper in e.g. the JCM800 and SLO100 are unbypassed gain stages. To my surprise there is not much to be found on unbypassed gain stages. Blencowe mentions it a bit in 1.18 (of pdf above) and here (http://valvewizard.co.uk/ChoosingBypassCaps.pdf) we can find the formula for the gain of the unbypassed gain stage. For the 'standard' 12AX7 unbypassed gain stage this simplifies to this approximation:
+The cold clipper in e.g. the JCM800 and SLO100 are unbypassed gain stages. To my surprise there is not much to be found on unbypassed gain stages. Blencowe mentions it a bit in 1.18 (of pdf above) and [here](http://valvewizard.co.uk/ChoosingBypassCaps.pdf) we can find the formula for the gain of the unbypassed gain stage. For the 'standard' 12AX7 unbypassed gain stage this simplifies to this approximation:
 
 gain = 100000 / (1600 + Rk)
 
