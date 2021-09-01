@@ -90,7 +90,7 @@ Cold_Clipper_Plate_Characteristics_Chart.jpg
 
 However, these load line plots are for the tube alone. The unbypassed cathode resistor alters the plate characteristic chart. As can be read in the 1945 book these plate (characteristic) curves have to be calculated for each cathode resistance separately. One can think of this as a special tube with the cathode resistor build in.
 
-![Altered Characteristic Plate Curve](images/Plate%20Curves%20Unbypassed%2010K%20Reduced.jpeg)
+![Altered Characteristic Plate Curve](images/Plate_Curves_Unbypassed_10K_Reduced.jpeg)
 
 Notice the grid lines are closer together and more evenly spaced, indicating lower gain and improved linearity.
 
@@ -200,6 +200,8 @@ The bends are slightly sharper.
 
 Conclusion
 Based on these experiments I would say that the contribution to the Cold Clipper to the overall distortion is small. Above all it is a low gain stage.
+
+TODO: SOUND!
 
 References:
 Blencowe pdf
