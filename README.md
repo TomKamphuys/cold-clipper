@@ -100,12 +100,14 @@ So a cold clipper gain stage (say 10k or 39k cathode resistor) is not nearly bia
 ## Feedback
 
 From wikipedia:
-A Negative-feedback amplifier (or feedback amplifier) is an electronic amplifier that subtracts a fraction of its output from its input, so that negative feedback opposes the original signal.[1] The applied negative feedback can improve its performance (gain stability, linearity, frequency response, step response) and reduces sensitivity to parameter variations due to manufacturing or environment. Because of these advantages, many amplifiers and control systems use negative feedback.
+
+> A Negative-feedback amplifier (or feedback amplifier) is an electronic amplifier that subtracts a fraction of its output from its input, so that negative feedback opposes the original signal.[1] The applied negative feedback can improve its performance (gain stability, linearity, frequency response, step response) and reduces sensitivity to parameter variations due to manufacturing or environment. Because of these advantages, many amplifiers and control systems use negative feedback.
 
 Designing Tube Preamps for Guitar and Bass also has a section about feedback.
 
 Improved linearity until cut off is reached:
-"... This means that at the moment the valve enters cut-off the signal voltage actually appearing at the grid (which is normally reduced by the feedback signal) suddenly jumps to its full level, so the valve is immediately driven _very_ far into cut off."
+
+> "... This means that at the moment the valve enters cut-off the signal voltage actually appearing at the grid (which is normally reduced by the feedback signal) suddenly jumps to its full level, so the valve is immediately driven _very_ far into cut off."
 
 
 ## Experiments
