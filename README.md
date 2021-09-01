@@ -3,7 +3,7 @@
 ## Introduction
 See e.g. https://robrobinette.com/How_the_Marshall_JCM800_Works.htm#Cold_Clipper by @robrob
 
-The Cold Clipper is common in high(er) gain amps. It is an unbypassed gain stage, often said to be biased cold and therefore easily clipping the signal and causing pleasant harmonic distortion. Over time I have come to question this statement.
+The Cold Clipper is common in high(er) gain amps. It is (mostly) an unbypassed gain stage, often said to be biased cold and therefore easily clipping the signal and causing pleasant harmonic distortion. Over time I have come to question this statement.
 
 ## Triode gain stage
 
@@ -68,7 +68,7 @@ The cold clipper in e.g. the JCM800 and SLO100 are unbypassed gain stages. To my
 
 gain = 100000 / (1600 + Rk)
 
-<img src="https://render.githubusercontent.com/render/math?math=gain = 100000 / (1600 + Rk)">
+<img src="https://render.githubusercontent.com/render/math?math=gain = 100000 / (1600 \+ Rk)">
 
 
 In graph form:
@@ -85,7 +85,7 @@ The normal load line plots are for fully bypassed stages:
 Cold_Clipper_Plate_Characteristics_Chart.jpg
 (taken from RobRob's cold clipper page)
 
-However, these load line plots are, dare I say it, useless for unbypassed gain stages. As can be read in the 1945 book these plate (characteristic) curves have to be calculated for each cathode resistance separately.
+However, these load line plots are for the tube alone. The unbypassed cathode resistor alters the plate characteristic chart. As can be read in the 1945 book these plate (characteristic) curves have to be calculated for each cathode resistance separately. One can think of this as a special tube with the cathode resistor build in.
 
 An example comparing theory (colored lines) vs. measurements (lines matches theory quite good) overlayed on the normal plate characteristics graph.
 
@@ -106,6 +106,17 @@ ColdClipper.png
 
 
 (taken from https://www.tdpri.com/threads/blackface-ab763-experiment-high-gain-series-mod.1059543/#post-10861737)
+
+## Feedback
+
+From wikipedia:
+A Negative-feedback amplifier (or feedback amplifier) is an electronic amplifier that subtracts a fraction of its output from its input, so that negative feedback opposes the original signal.[1] The applied negative feedback can improve its performance (gain stability, linearity, frequency response, step response) and reduces sensitivity to parameter variations due to manufacturing or environment. Because of these advantages, many amplifiers and control systems use negative feedback.
+
+Designing Tube Preamps for Guitar and Bass also has a section about feedback.
+
+Improved linearity until cut off is reached:
+"... This means that at the moment the valve enters cut-off the signal voltage actually appearing at the grid (which is normally reduced by the feedback signal) suddenly jumps to its full level, so the valve is immediately driven _very_ far into cut off."
+
 
 ## Experiments
 I put my JCM800 clone on the bench ( https://www.tdpri.com/threads/jcm800-6v6-variant.1027817/ ). I applied a approximately 100mV RMS 1kHz signal to the high input.
@@ -206,9 +217,6 @@ Blencowe pdf
 
 
  + other books
+https://www.pearl-hifi.com/06_Lit_Archive/14_Books_Tech_Papers/Valley-Wallman/Valley_and_Wallman.pdf p426 and further.
 
-
-TODO
-Formula:
-
-$$Vin=Vg+Vk$$
+http://tubebooks.org/Books/Preisman_graph.pdf p230 and further.
