@@ -111,96 +111,45 @@ Improved linearity until cut off is reached:
 
 
 ## Experiments
-I put my JCM800 clone on the bench ( https://www.tdpri.com/threads/jcm800-6v6-variant.1027817/ ). I applied an approximately 100mV RMS 1kHz signal to the high input.
+I put my [JCM800 clone](https://www.tdpri.com/threads/jcm800-6v6-variant.1027817) on the bench. I applied an approximately 100mV RMS 1kHz signal to the high input.
 
+### Cold Clipper
 
 Amp settings:
 Treble low, Middle mid, Bass low. Quite lossy.
 
 Input (bottom trace) and output (top trace), after the coupling cap, of the Cold Clipper:
 Oscilloscope settings:
-Input: .5V/div, 1ms/div
-Output: 2V/div, 1ms/div
+Input: .5V/ div, 1ms/ div
+Output: 2V/ div, 1ms/ div
 Probes setting: x10
 
-IMG_20210818_191746951.jpg
-Overview. Gain at 9 o' clock
-
-No comment
-
-===============================================================
-
-IMG_20210818_191800945.jpg
-Gain at 9 o' clock
-
-The output of the Cold Clipper looks slightly triangular. If I remember correctly, this is caused by the treble bleeder.
-
-===============================================================
-
-IMG_20210818_191818748.jpg
-Gain at 12 o' clock
-
-Still no obvious Cold Clipper distortion. Signal strength on scope differs by a factor of 2. Because of scope settings we have another factor of 4. Cold Clipper gain is approx. 8, which matches theory.
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![Gain at 9 o'clock](images/IMG_20210818_191800945.jpg) | ![Gain at 12 o'clock](images/IMG_20210818_191818748.jpg)
+Gain at 9 o'clock. The output of the Cold Clipper looks slightly triangular. If I remember correctly, this is caused by the treble bleeder. | Gain at 12 o' clock. Still no obvious Cold Clipper distortion. Signal strength on scope differs by a factor of 2. Because of scope settings we have another factor of 4. Cold Clipper gain is approx. 8, which matches theory.
+![Gain at 3 o'clock](images/IMG_20210818_191828239.jpg) | ![Gain at full](images/IMG_20210818_191837366.jpg)
+Gain at 3 o'clock. Finally we see some clear Cold Clipper distortion. | Gain at full. No comment.
 
 
-================================================================
-
-IMG_20210818_191828239.jpg
-Gain at 3 o' clock
-
-Finally we see some clear Cold Clipper distortion.
-
-================================================================
-
-IMG_20210818_191837366.jpg
-Gain at full
-
-No Comment.
-
-===============================================================
+### Warm stage and cathode follower
 
 Cold Clipper output (top trace) and tone stack output (bottom trace):
 
 Oscilloscope settings:
-Input: 2V/div, 1ms/div
-Output: 2V/div, 1ms/div
+Input: 2V/ div, 1ms/ div
+Output: 2V/ div, 1ms/ div
 Probes setting: x10
-
-IMG_20210818_192058474.jpg
-Gain at 9 o' clock
-
-Already quite some distortion is visible, caused by the warm stage and the cathode follower.
-
-===============================================================
-
-IMG_20210818_192105206.jpg
-Gain at 12 o' clock
-
-Heavy distortion at the output of the tone stack, while the output of the Cold Clipper is still clean.
-
-===============================================================
-
-IMG_20210818_192112835.jpg
-Gain at 3 o' clock
-
-Heavy distortion at the output of the tone stack. Output of Cold Clipper is also distorting. In my opinion it is questionable if the CC distortion significantly alters the waveform at the output of the tone stack. The actual shape and level of the tone stack output is (of course) heavily dependent on the TMB settings.
-
-===============================================================
 
 Solarized dark             |  Solarized Ocean
 :-------------------------:|:-------------------------:
-![hoover text 1](images/FullGain.jpg) | ![hoover text 2](images/FullGain.jpg)
-left | right
-![hoover text 1](images/FullGain.jpg) | ![hoover text 2](images/FullGain.jpg)
-left | right
+![Gain at 9 o'clock](images/IMG_20210818_192058474.jpg) | ![Gain at 12 o'clock](images/IMG_20210818_192105206.jpg)
+Gain at 9 o'clock. Already quite some distortion is visible, caused by the warm stage and the cathode follower. | Gain at 12 o' clock. Heavy distortion at the output of the tone stack, while the output of the Cold Clipper is still clean.
+![Gain at 3 o'clock](images/IMG_20210818_192112835.jpg) | ![Gain at full](images/FullGain.jpg)
+Gain at 3 o'clock. Heavy distortion at the output of the tone stack. Output of Cold Clipper is also distorting. In my opinion it is questionable if the CC distortion significantly alters the waveform at the output of the tone stack. The actual shape and level of the tone stack output is (of course) heavily dependent on the TMB settings. | Note that while the Cold Clipper output signal increased, the signal level at the output of the tone stack stayed nearly the same and is now lower than the output of the Cold Clipper. A less lossy tone stack setting would have driven the LTP a bit harder. Maybe that (together with the post phase inverter volume) allows one to control the amount of LTP clipping? The bends are slightly sharper.
 
-Note that while the Cold Clipper output signal increased, the signal level at the output of the tone stack stayed nearly the same and is now lower than the output of the Cold Clipper. A less lossy tone stack setting would have driven the LTP a bit harder. Maybe that (together with the post phase inverter volume) allows one to control the amount of LTP clipping?
 
-The bends are slightly sharper.
-
-===============================================================
-
-Conclusion
+## Conclusion
 Based on these experiments I would say that the contribution to the Cold Clipper to the overall distortion is small. Above all it is a low gain stage.
 
 TODO: SOUND!
@@ -209,8 +158,6 @@ References:
 Blencowe pdf
 [1]: <https://worldradiohistory.com/Archive-Rider/BOOKS/Inside-the-Vacuum-Tube-Rider-1945.pdf > "Inside the Vacuum Tube Rider p.327 and further"
 
-
- + other books
 https://www.pearl-hifi.com/06_Lit_Archive/14_Books_Tech_Papers/Valley-Wallman/Valley_and_Wallman.pdf p426 and further.
 
 http://tubebooks.org/Books/Preisman_graph.pdf p230 and further.
