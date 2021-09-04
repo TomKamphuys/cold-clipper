@@ -94,7 +94,31 @@ However, these load line plots are for the tube alone. The unbypassed cathode re
 
 Notice the grid lines are closer together and more evenly spaced, indicating lower gain and improved linearity.
 
-So a cold clipper gain stage (say 10k or 39k cathode resistor) is not nearly biased as cold as the fully bypassed gain stage load line suggests, but is mostly a low gain stage.
+### Drawing altered characteristic plate curves
+
+The altered characteristic plate curve above has been created by taking measurements. Another option is implementing the algorithm in [the 1945 book] or using a electronics simulation program like ltspice. An estimate can be drawn using these three ideas:
+
+- All altered characterictic plate curves are equal in the case of zero current. 
+- Feedback straightens the grid curves and makes them more parallel.
+- The bias point is the same for the bypassed and unbypassed case.
+
+This results in this graph
+
+![Simplified Characteristic plate curve drawing](images/IMG_20210824_180924194_HDR.jpg)
+
+An even simpler appoach is only calculating the transformed curve on the load line, more particular, only the points where the load line crossed the normal characteristic plate curves.  
+
+Vin = Vgk + Vk
+
+Vk = I x Rk
+
+'I' can be read from the characteristic plate curves at the points where the grid curve Vgk crosses the load line. 
+
+This results in the image below.
+
+![Simple pointwise altered characteristic plate curve drawing](images/simple_altered_plate_characteristic_curve.jpg)
+
+
 
 
 ## Feedback
